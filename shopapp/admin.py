@@ -1,13 +1,19 @@
 from django.contrib import admin
-from .models import Product,ContactUs
-
+from .models import Product, Contact, Category
 
 # Register your models here.
+
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title','price','created_at')
+    list_display = ('id', 'title','price', 'created_at')
     list_display_links = ('id', 'title')
-    search_fields = ('title', 'content','price','created_at')
+    search_fields = ('title', 'content', 'price', 'created_at')
+
+class ContactAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name','email','phone')
+    list_display_links = ('id', 'name')
+    search_fields = ('name', 'email', 'phone')
 
 
 admin.site.register(Product, ProductAdmin)
-admin.site.register(ContactUs)
+admin.site.register(Contact, ContactAdmin)
+admin.site.register(Category)

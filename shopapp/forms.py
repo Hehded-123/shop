@@ -1,7 +1,7 @@
 from django import forms
-from django.contrib.auth.models import User
+from .models import Contact
 
-class ContactUsForm(forms.Form):
+class ContactForm(forms.ModelForm):
     class Meta:
-        model = ContactUs
-        fields = ['name', 'email','phone', 'message']
+        model = Contact
+        fields = ['name', 'email', 'phone', 'message']
